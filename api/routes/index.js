@@ -5,6 +5,7 @@ const router=express.Router();
 const homecontroller=require('../controllers/homecontroler');
 
 router.get('/getitems',homecontroller.getitems);
+router.post('/additem',homecontroller.additem);
 
 
 module.exports=router;

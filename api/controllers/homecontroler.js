@@ -20,11 +20,30 @@ const items=[
         description:"this is item 4"
     },
 ]
+
+//api to get all items
 module.exports.getitems=(req,res)=>{
     try{
            res.status(200).json({items});
     }
     catch{
            res.status(400).json({message:"error while getting item"});
+    }
+}
+
+//api to add item
+module.exports.additem=(req,res)=>{
+    try{
+        items.map((i)=>{
+            if(i.id==req.body.id){
+                res.status(400).json({message:"item already present in list"});
+                return;   
+            }
+        })
+       items.push(req.body);
+       res.status(200).json(items);
+    }
+    catch{
+        res.status(400).json({message:"error while adding item"});
     }
 }

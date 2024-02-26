@@ -3,6 +3,9 @@ const port=7000;
 
 const app=express();
 
+//parse incoming requests into object
+app.use(express.urlencoded());
+
 app.use('/',require('./routes/index.js'));
 //starting express server
 app.listen(port,(err)=>{
