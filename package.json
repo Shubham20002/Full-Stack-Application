@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Shubham20002/Full-Stack-Application/issues"
   },
-  "homepage": "https://github.com/Shubham20002/Full-Stack-Application#readme"
+  "homepage": "https://github.com/Shubham20002/Full-Stack-Application#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.1.0"
+  }
 }
