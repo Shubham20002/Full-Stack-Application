@@ -43,7 +43,25 @@ module.exports.additem=(req,res)=>{
        items.push(req.body);
        res.status(200).json(items);
     }
-    catch{
-        res.status(400).json({message:"error while adding item"});
+    catch(error){
+        res.status(400).json({message:"error while adding item",error:error});
+    }
+}
+
+//api to update item
+
+module.exports.updateitem=(req,res)=>{
+    try{
+        console.log(req.body.name);
+     for(var i=0;i<items.length;i++){
+        if(items[i].id==req.query.id){
+            items[i].name=req.body.name;
+            items[i].description=req.body.description;
+            res.status(200).json({items});
+        }
+     }
+    }
+    catch(error){
+        res.status(400).json({message:"error while updating item",error:error});
     }
 }
