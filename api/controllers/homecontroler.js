@@ -1,4 +1,4 @@
-const items=[
+var items=[
     {
         id:1,
         name:"item1",
@@ -63,5 +63,23 @@ module.exports.updateitem=(req,res)=>{
     }
     catch(error){
         res.status(400).json({message:"error while updating item",error:error});
+    }
+}
+
+//api to delete item
+
+module.exports.deleteitem=(req,res)=>{
+    try{
+        const newitems=items.filter((i)=>{
+            if(i.id!=req.query.id){
+                return i;
+            }
+        })
+        
+        items=newitems;
+        res.status(200).json({items})
+    }
+    catch(error){
+        res.status(400).json({message:"error while deleting item",error:error});
     }
 }
