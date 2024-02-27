@@ -78,7 +78,7 @@ module.exports.deleteitem=(req,res)=>{
         })
         
         items=newitems;
-        res.status(200).json({items})
+        res.status(200).json({items,message:"item deleted successfully"});
     }
     catch(error){
         res.status(400).json({message:"error while deleting item",error:error});
