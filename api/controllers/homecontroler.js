@@ -34,6 +34,7 @@ module.exports.getitems=(req,res)=>{
 //api to add item
 module.exports.additem=(req,res)=>{
     try{
+        console.log(req.body);
         items.map((i)=>{
             if(i.id==req.body.id){
                 res.status(400).json({message:"item already present in list"});

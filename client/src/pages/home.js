@@ -15,18 +15,14 @@ export default function Home() {
           fetchData();  
     },[itemsdata]);
 
-    // const deleteitem=async(i)=>{
-    //   await fetch(`http://localhost:3000/deleteitem/${i}`);
-
-
-    // }
+   
 
     async function deleteitem(i){
       const res=await fetch(`http://localhost:3000/deleteitem/?id=${i}`,{
         method:"delete"
       });
-      console.log("delete");
-      console.log(res);
+      
+      
     }
     // console.log(itemsdata);
     
