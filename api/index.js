@@ -6,6 +6,7 @@ app.use(cors());
 
 //parse incoming requests into object
 app.use(express.urlencoded());
+app.use(express.json());
 
 app.use('/',require('./routes/index.js'));
 //starting express server

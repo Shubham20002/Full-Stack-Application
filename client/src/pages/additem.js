@@ -10,7 +10,7 @@ export default function Additem() {
       ...formdata,
       [e.target.id]:e.target.value
     })
-    console.log(formdata);
+    // console.log(formdata);
 
   }
   
@@ -24,7 +24,8 @@ export default function Additem() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formdata),
+
+        body:JSON.stringify(formdata),
       });
       navigate('/');
     } catch (error) {
