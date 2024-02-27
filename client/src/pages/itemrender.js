@@ -12,6 +12,7 @@ export default function Itemrender(props) {
         <th>{id}</th>
         <th> {name}</th>
         <th>{description}</th>
+        <th><button onClick={()=>props.deleteitem(id)}>delete</button></th>
       </tr>
     </thead>
   </Table>

@@ -13,14 +13,28 @@ export default function Home() {
           setitemsdata(items);          
           }
           fetchData();  
-    },[]);
-    console.log(itemsdata);
+    },[itemsdata]);
+
+    // const deleteitem=async(i)=>{
+    //   await fetch(`http://localhost:3000/deleteitem/${i}`);
+
+
+    // }
+
+    async function deleteitem(i){
+      const res=await fetch(`http://localhost:3000/deleteitem/?id=${i}`,{
+        method:"delete"
+      });
+      console.log("delete");
+      console.log(res);
+    }
+    // console.log(itemsdata);
     
   return (
     <>
     <div class="m-10 w-100 " >
    {itemsdata.map((i)=>(
-    <Itemrender data={i}/>
+    <Itemrender data={i} deleteitem={deleteitem}/>
     
    ))
 }  
