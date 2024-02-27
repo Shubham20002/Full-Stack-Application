@@ -1,7 +1,8 @@
 const express=require('express');
-const port=7000;
-
+const port=3000;
+var cors = require('cors')
 const app=express();
+app.use(cors());
 
 //parse incoming requests into object
 app.use(express.urlencoded());
