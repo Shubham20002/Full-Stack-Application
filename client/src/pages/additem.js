@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function Additem() {
   const [formdata,setFormdata]=useState({});
@@ -17,7 +19,6 @@ export default function Additem() {
     e.preventDefault();
     console.log(formdata);
     try {
-     
         const res = await fetch('http://localhost:3000/additem', {
         method: 'POST',
         headers: {
@@ -25,40 +26,39 @@ export default function Additem() {
         },
         body:JSON.stringify(formdata),
       });
-      setmessage(res.message);
-      navigate('/');
+         setmessage(res.message);
+         navigate('/');
     } catch (error) {
     
     }
   }
   return (
     <>
-    <form onSubmit={handleSubmit}>
-             
-             <input
-               type='text'
-               placeholder='id'
-               id='id'
-               onChange={handleChange}
-             />
-             <input
-               type='text'
-               placeholder='name'
-               id='name'
-               onChange={handleChange}
-             />
-              <input
-               type='text'
-               placeholder='description'
-               id='description'
-               onChange={handleChange}
-             />
-       
-             <button >
-           submit
-             </button>
-             
-           </form>
+    
+
+ <div style={{width:"70%",margin:'auto'}}>
+           <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Id</Form.Label>
+        <Form.Control type="text" id='id'
+               onChange={handleChange}  />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>name</Form.Label>
+        <Form.Control type="text"  id='name' onChange={handleChange} />
+      </Form.Group>
+      
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>description</Form.Label>
+        <Form.Control type="text" id="description" onChange={handleChange} />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Add Item
+      </Button>
+    </Form>
+</div>
            {message}
     </>
   )
