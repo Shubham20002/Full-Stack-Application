@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function Updateitem() {
 const {id}=useParams();
@@ -45,27 +47,29 @@ const [values,setValues]=useState({
   }
   return (
     <>
-    <form onSubmit={handleSubmit}>
-             
-            
-             <input
-               type='text'
-               id='name'
-               value={values.name}
-               onChange={(e)=>setValues({...values,name:e.target.value})}
-             />
-              <input
-               type='text'
-               id='description'
-              value={values.description}
-              onChange={(e)=>setValues({...values,description:e.target.value})}
-             />
+   
+<div style={{width:"70%", margin:"auto"}}>
+           <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" value={values.name}
+               onChange={(e)=>setValues({...values,name:e.target.value})} />
+        
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Discription</Form.Label>
+        <Form.Control type="text" value={values.description}
+              onChange={(e)=>setValues({...values,description:e.target.value})}  />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
        
-             <button >
-           submit
-             </button>
-             
-           </form>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+    </div>
     </>
   )
 }
