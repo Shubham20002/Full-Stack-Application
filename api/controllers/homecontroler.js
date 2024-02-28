@@ -53,7 +53,8 @@ module.exports.additem=(req,res)=>{
 
 module.exports.updateitem=(req,res)=>{
     try{
-        console.log(req.body.name);
+        console.log(req.body);
+        console.log(req.query.id);
      for(var i=0;i<items.length;i++){
         if(items[i].id==req.query.id){
             items[i].name=req.body.name;
